@@ -1,0 +1,29 @@
+type Designation {
+    id: ID!
+    name: String!
+    type: String
+    department: String
+    salary: String!
+
+}
+
+type Employee {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    phoneNo: String
+    address: String
+    designation: Designation!
+}
+
+type Query {
+    employeeList : [Employee]!
+    employeeById(id: ID): Employee!
+#    employeeListByLastName(lastName: String) : [Employee]!
+    designationList: [Designation]!
+}
+
+type Mutation {
+    insertDesignation(name: String!, type: String!, department: String!, salary: String!) : Designation!
+    insertEmployee(firstname: String!, lastName: String!, phoneNo: String!, address: String!, designation: ID!): Employee!
+}
